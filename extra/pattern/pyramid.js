@@ -1,4 +1,4 @@
-pyramid(5,'fullpyramid')
+pyramid(4,'fullpyramid')
 function pyramid(row,type){
     if(type=='halfpyramid'){
         let n = row;
