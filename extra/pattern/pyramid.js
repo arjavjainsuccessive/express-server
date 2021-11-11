@@ -1,5 +1,5 @@
-pyramid(4,'fullpyramid')
-function pyramid(row,type){
+
+export default function pyramid(row,type){
     if(type=='halfpyramid'){
         let n = row;
         let string = "";

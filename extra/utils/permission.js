@@ -1,16 +1,5 @@
-var permissions = {
-    'getusers':{
-        all: ['head-trainer'],
-        read : ['trainee', 'trainer'],
-        write : ['trainer'],
-        delete: [],
-    }
-};
-res = hasPermission('getusers','head-trainer','write')
-console.log(res)
 
-res = hasPermission(permissions.getusers);
-function hasPermission(module,role,permissionType){
+export default function hasPermission(module,role,permissionType){
     if(module == 'getusers' && role == 'trainee' && permissionType == 'read'){
         return 'true';
     }
