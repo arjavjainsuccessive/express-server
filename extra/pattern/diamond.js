@@ -1,9 +1,9 @@
-let node = 5;
-    let string = "";
+export default function diamond(node){
+  let string = "";
     for (let i = 1; i <= node; i++) {
       for (let j = node; j > i; j--) {
         string += " ";
-      }
+      } 
       for (let k = 0; k < i; k++) {
         string += "* ";
       }
@@ -18,4 +18,5 @@ let node = 5;
       }
       string += "\n";
     }
-    console.log(string);
+  console.log(string);
+}
