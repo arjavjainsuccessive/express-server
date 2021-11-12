@@ -4,13 +4,13 @@ export default function validateuser(users){
     const invalid = [];
     let res = "";
     let userlen = users.length;
-    for(var i=0;i<userlen;i++){
-        res = validateEmail(users[i]);
+    for(var user_iterate=0;user_iterate<userlen;user_iterate++){
+        res = validateEmail(users[user_iterate]);
         if (res == true){
-        valid.push(users[i]);
+        valid.push(users[user_iterate]);
     }
         else{
-            invalid.push(users[i]);
+            invalid.push(users[user_iterate]);
         }
     }
     console.log(`these are valid emails= ${valid}`);

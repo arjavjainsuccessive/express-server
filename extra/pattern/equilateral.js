@@ -1,13 +1,13 @@
 export default function equilateral(node){
-  let string = "";
-  for (let i = 1; i <= node; i++) {
-    for (let j = node; j > i; j--) {
-      string += " ";
+  let equilateral_star = "";
+  for (let row = 1; row <= node; row++) {
+    for (let column = node; column > row; column--) {
+      equilateral_star += " ";
     }
-    for (let k = 0; k < i; k++) {
-      string += "* ";
+    for (let column_star = 0; column_star < row; column_star++) {
+      equilateral_star += "* ";
     }
-    string += "\n";
+    equilateral_star += "\n";
   }
-  console.log(string);  
+  console.log(equilateral_star);  
 }

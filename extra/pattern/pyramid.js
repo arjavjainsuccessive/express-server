@@ -1,56 +1,51 @@
-
-export default function pyramid(row,type){
+export default function pyramid(node,type){
     if(type=='halfpyramid'){
-        let n = row;
-        let string = "";
-        for (let i = 1; i <= n; i++) {
-            for (let k = 1; k <= i; k++) {
-                string += `${k} `;
+        let pyramid_pattern = "";
+        for (let row = 1; row <= node ; row++) {
+            for (let column = 1; column <= row; column++) {
+                pyramid_pattern += `${column} `;
             }
-            string += "\n";
+            pyramid_pattern += "\n";
         }   
-        console.log(string);
+        console.log(pyramid_pattern);
     }
     else if(type == 'fullpyramid'){
-        let n = row;
-            let string = "";
-            for (let i = 1; i <= n; i++) {
-                for (let j = 1; j <= n - i; j++) {
-                    string += "  ";
+            let fullpyramid_pattern = "";
+            for (let row = 1; row <= node; row++) {
+                for (let column = 1; column <= node - row; column++) {
+                    fullpyramid_pattern += "  ";
                 }
-                let m = i;
-                let r = 2*i-2;
-                for (let k = 1; k <= 2 * i - 1; k++) {
-                    if(k<=i){
-                        string += `${m} `;
-                        m+=1;
+                let odd_half = row;
+                let even_half = 2*row-2;
+                for (let column = 1; column <= 2 * row - 1; column++) {
+                    if(column<=row){
+                        fullpyramid_pattern += `${odd_half} `;
+                        odd_half+=1;
                     }
                     else{
-                        string+=`${r} `;
-                        r = r-1;
+                        fullpyramid_pattern+=`${even_half} `;
+                        even_half = even_half-1;
                     }
-    
                 }
-                string += "\n";
+                fullpyramid_pattern += "\n";
             }
-            console.log(string);
+            console.log(fullpyramid_pattern);
 
     }
     else if(type == 'differentpyramid'){
-        let n = row;
-        let string = "";
-        for (let i = 1; i <= n; i++) {
-            for (let j = 1; j <= 2*n -1 - i; j++) {
-                string +="*";
+        let differentpyramid = "";
+        for (let row = 1; row <= node; row++) {
+            for (let column = 1; column <= 2*node -1 - row; column++) {
+                differentpyramid +="*";
             }
-            for (let k = 1; k <=  i ; k++) {
-                string += `${i}*`;
+            for (let column = 1; column <=  row ; column++) {
+                differentpyramid += `${row}*`;
             }
-            for(let k=7;k>= i;k--){
-                string+="*"
+            for(let column=node+2;column>= row;column--){
+                differentpyramid+="*"
             }
-            string += "\n";
+            differentpyramid += "\n";
         }
-        console.log(string);
+        console.log(differentpyramid);
     }
 }

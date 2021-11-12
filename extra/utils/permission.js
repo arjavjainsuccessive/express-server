@@ -1,4 +1,3 @@
-
 export default function hasPermission(module,role,permissionType){
     if(module == 'getusers' && role == 'trainee' && permissionType == 'read'){
         return 'true';
