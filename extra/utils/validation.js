@@ -8,8 +8,8 @@ export default function validateuser(users){
     for(var user_iterate=0;user_iterate<userlen;user_iterate++){
         res = validateEmail(users[user_iterate]);
         if (res == true){
-        valid.push(users[user_iterate]);
-    }
+            valid.push(users[user_iterate]);
+        }
         else{
             invalid.push(users[user_iterate]);
         }
