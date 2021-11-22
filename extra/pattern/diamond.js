@@ -1,21 +1,22 @@
-let node = 5;
-    let string = "";
-    for (let i = 1; i <= node; i++) {
-      for (let j = node; j > i; j--) {
-        string += " ";
+export default function diamond(node){
+  let diamond_star = "";
+    for (let row = 1; row <= node; row++) {
+      for (let column = node; column > row; column--) {
+        diamond_star += " ";
+      } 
+      for (let column_star = 0; column_star < row; column_star++) {
+        diamond_star += "* ";
       }
-      for (let k = 0; k < i; k++) {
-        string += "* ";
-      }
-      string += "\n";
+      diamond_star += "\n";
     }
-    for (let i = 0; i <= node-1 ; i++) {
-      for (let j = 0; j < i; j++) {
-        string += " ";
+    for (let row = 0; row <= node-1 ; row++) {
+      for (let column = 0; column < row; column++) {
+        diamond_star += " ";
       }
-      for (let k = (node - i); k > 0; k--) {
-        string += "* ";
+      for (let column_star = (node - row); column_star > 0; column_star--) {
+        diamond_star += "* ";
       }
-      string += "\n";
+      diamond_star += "\n";
     }
-    console.log(string);
+  console.log(diamond_star);
+}
