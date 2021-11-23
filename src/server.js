@@ -1,4 +1,7 @@
+import {errorHandler} from './libs/routes/errorHandler';
+import {notFound} from './libs/routes/notFoundRoute';
 require('dotenv').config();
+var bodyParser = require('body-parser')
 const express = require('express');
 const app = express();
  class Server{
@@ -9,10 +12,13 @@ const app = express();
     setupRoutes(){
         app.get('/health-check',function(req,res){
             res.send('I am Okay!');
-        });
+        }); 
+        app.use(notFound);
+        //app.use(errorHandler); 
     }
     bootstrap(){
         this.setupRoutes();
+        this.initBodyParser();
     }
     run(){
         app.get("/",function (req, res) {
@@ -21,5 +27,11 @@ const app = express();
             res.end();
           });
     }
+    initBodyParser(){
+        app.use(bodyParser.urlencoded({
+            extended: true
+        }));
+    }
 }
+
 module.exports = Server;
