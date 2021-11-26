@@ -1,5 +1,4 @@
 export class TraineeController{
-    //constructor(){}
     trainne_get_routes = function(req,res){
         res.send('This is trainee get respond');
     }
