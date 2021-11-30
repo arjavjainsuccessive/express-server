@@ -7,8 +7,8 @@ const traineeController = new TraineeController();
 
 router.route('/')
 .post(validationHandler(validation.create),traineeController.create)
-.get(validationHandler(validation.get),traineeController.get)
-.put(validationHandler(validation.update),traineeController.update)
-.delete(validationHandler(validation.delete),traineeController.delete)
+// .get(validationHandler(validation.get),traineeController.get)
+// .put(validationHandler(validation.update),traineeController.update)
+// .delete(validationHandler(validation.delete),traineeController.delete)
  
 export default router;
