@@ -1,14 +1,15 @@
 export class TraineeController{
-    trainne_get_routes = function(req,res){
-        res.send('This is trainee get respond');
+    create = function(req,res){
+        res.send({Data:'This is trainee post respond'});
     }
-    trainee_put_routes = function (req,res) {
-        res.send('this is trainee put response');
+    get = function (req,res) {
+        res.send({Data:'this is trainee get response'});
+
     }
-    trainee_post_routes = function (req,res) {
-        res.send('this is trainee post response');
+    update = function (req,res) {
+        res.send({Data:'this is trainee put response'});
     }
-    trainee_delete_routes = function (req,res) {
-        res.send('this is trainee delete response');
+    delete = function (req,res) {
+        res.send({Data:'this is trainee delete response'});
     }
 } 
