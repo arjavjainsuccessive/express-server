@@ -68,14 +68,27 @@ const validationHandler = (config) => (req, res, next) => {
             }
           case 'regex':
             if(typeof input != 'undefined'){
-              let result = /^[a-zA-Z ]+$/.test(input);
-              if(result == true){
-                break;
+              if ( key == 'email'){
+                let regex=/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(input);
+                if(regex == true){
+                  break;
+                }
+                else{
+                  errMsg.push(`${key} is not in proper form`);
+                  flag = true;
+                  break;
+                }
               }
               else{
-                errMsg.push(`${key} is not in proper form`);
-                flag = true;
-                break;
+                let result = /^[a-zA-Z ]+$/.test(input);
+                if(result == true){
+                  break;
+                }
+                else{
+                  errMsg.push(`${key} is not in proper form`);
+                  flag = true;
+                  break;
+                }
               }
             }
           case 'custom':
