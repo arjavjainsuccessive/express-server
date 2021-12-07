@@ -1,12 +1,13 @@
-let node = 5; 
-    let string = "";
-    for (let i = 1; i <= node; i++) {
-      for (let j = node; j > i; j--) {
-        string += " ";
-      }
-      for (let k = 0; k < i; k++) {
-        string += "* ";
-      }
-      string += "\n";
+export default function equilateral(node){
+  let equilateral_star = "";
+  for (let row = 1; row <= node; row++) {
+    for (let column = node; column > row; column--) {
+      equilateral_star += " ";
     }
-    console.log(string);
+    for (let column_star = 0; column_star < row; column_star++) {
+      equilateral_star += "* ";
+    }
+    equilateral_star += "\n";
+  }
+  console.log(equilateral_star);  
+}
