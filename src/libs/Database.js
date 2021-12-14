@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 class Database{
     open(DbUrl){
         let flag;
-       flag = mongoose.connect(DbUrl)
+       flag = mongoose.connect(DbUrl,{ useNewUrlParser: true, useUnifiedTopology: true })
         .then( ()=> {
             console.log("Conncected successfully")
        return true;
