@@ -1,6 +1,7 @@
 import { TraineeController } from './controller';
 import validationHandler from '../../libs/validationHandler'
 import validation from './validation';
+import hasPermission from '../../../extra/utils/permission';
 const express = require('express');
 const router = express.Router();
 const traineeController = new TraineeController();

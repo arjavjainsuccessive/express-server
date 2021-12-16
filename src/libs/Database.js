@@ -1,10 +1,12 @@
+import seedData from './seedData';
 var mongoose = require('mongoose');
 class Database{
     open(DbUrl){
         let flag;
        flag = mongoose.connect(DbUrl,{ useNewUrlParser: true, useUnifiedTopology: true })
         .then( ()=> {
-            console.log("Conncected successfully")
+            seedData.seed();
+            console.log("Conncected successfully");
        return true;
      })
         .catch( (err) => {

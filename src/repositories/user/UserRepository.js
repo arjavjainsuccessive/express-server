@@ -1,5 +1,5 @@
 import user from './UserModel';
-import userSchema from './UserSchema';
+const bcrypt = require('bcrypt');
 class UserRepository{
     create = async (req , res) => {
         var users = req.body;
@@ -23,11 +23,22 @@ class UserRepository{
         }
     }
     update = async (req,res) =>{
-        let name = req.body.userId;
-        let newData = req.body;
+        let { id } = req.params;
         try{
-            await user.findOneAndUpdate(name,newData);
-            res.send('data update successfully')
+            if(typeof req.body.password != 'undefined'){
+                let password = req.body.password;
+                const salt = await bcrypt.genSalt(10);
+                const hashPassword = await bcrypt.hash(password,salt);
+                req.body.password = hashPassword;
+                let newData = req.body;
+                await user.findByIdAndUpdate(id,newData);
+                res.send('data update successfully')
+            }
+            else{
+                let newData = req.body;
+                await user.findByIdAndUpdate(id,newData);
+                res.send('data update successfully')
+            }
         }
         catch(err){
             res.send(err);
