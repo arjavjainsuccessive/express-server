@@ -14,8 +14,8 @@ class UserRepository{
     }
     delete  = async (req,res) => {
         try{
-            var name = req.body;
-            await user.findOneAndDelete(name);
+            let { id }  = req.params; 
+            await user.findByIdAndRemove(id);
             res.send("deleted successfully");
         }
         catch(err){
@@ -23,8 +23,8 @@ class UserRepository{
         }
     }
     update = async (req,res) =>{
-        var name = req.body.userId;
-        var newData = req.body;
+        let name = req.body.userId;
+        let newData = req.body;
         try{
             await user.findOneAndUpdate(name,newData);
             res.send('data update successfully')
@@ -34,10 +34,16 @@ class UserRepository{
         }
     }
     find = async (req,res) =>{
-        var name = req.body;
+        let { id } = req.params;
         try{
-            var data = await user.findOne(name);
-            res.json(data);
+            if(typeof id != 'undefined'){
+                let data = await user.findById(id);
+                res.send(data);
+            }
+            else{
+                let data = await user.find();
+                res.send(data);
+            }
         }
         catch(err){
             res.send(err);
