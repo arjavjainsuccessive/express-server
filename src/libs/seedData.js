@@ -2,18 +2,13 @@ import users from "../repositories/user/UserModel";
 const bcrypt = require('bcrypt');
 class Seed{
   seed =  async () => {
-    const saltRounds = 10;
-    const salt = await bcrypt.genSalt(saltRounds);
-    const hash = await bcrypt.hash('Trainner@123', salt);
-
-    const user = {
+      const user = {
       email: 'arjav@successive.tech',
       name: 'Arjav Jain',
-      password: hash,
+      password: 'ArjavJain2804@',
       role: 'head-trainer',
       userId: 'arjavj.jain',
     };
-   
     try {
       const count = await users.countDocuments();
       if (count === 0) {

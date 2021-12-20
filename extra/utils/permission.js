@@ -1,20 +1,20 @@
 export default function hasPermission(module,role,permissionType){
     if(module == 'getusers'){
         if(role == 'trainee' && permissionType == 'read'){
-            return 'true';
+            return true;
         }
         else if(role == 'trainer' && (permissionType == 'read' || permissionType == 'write')){
-            return 'true';
+            return true;
         }
         else if(role == 'head-trainer'){
-            return 'true';
+            return true;
         }
         else{
-            return 'false';
+            return false;
         }
 
     }
     else{
-        return 'false';
+        return false;
     }
 }
