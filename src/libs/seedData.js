@@ -8,6 +8,8 @@ class Seed{
       password: 'ArjavJain2804@',
       role: 'head-trainer',
       userId: 'arjavj.jain',
+      updatedBy:'Headtrainer',
+      createdBy:'Headtrainer'
     };
     try {
       const count = await users.countDocuments();

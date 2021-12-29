@@ -9,14 +9,15 @@ export let userRole;
        }
        else{
             const userInfo = Jwt.verify(token,secretKey);
-           let result =  hasPermission('getusers',userInfo.role,'all')
-           console.log(result);
-           if(result){
-            res.status(200).json({message:"login successfuly",status:200,token:token});
-           }
-           else{
-                res.send('do not authorised');
-           }
-       }
+            if(userInfo.role == 'trainer'){
+                let result =  hasPermission('getusers',userInfo.role,'read')
+                if(result){
+                    res.status(200).json({message:"login successfuly",status:200,token:token});
+                }
+                else{
+                    res.send('do not authorised');
+                }
+            }
+        }
     }
     export default authMiddleWare;

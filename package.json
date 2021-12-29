@@ -9,6 +9,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.0",
     "mongoose-auto-increment": "^5.0.1",
+    "mongoose-extend-schema": "^1.0.0",
     "node-module": "^2.0.0"
   },
   "devDependencies": {
